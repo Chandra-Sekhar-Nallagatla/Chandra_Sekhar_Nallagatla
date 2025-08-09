@@ -1,43 +1,20 @@
 package TANDEMLOOP;
 
-//import java.util.Scanner;
-//
-//public class Problem1 {
-//
-//	public static void main(String[] args) {
-//		
-//		Scanner scan = new Scanner(System.in); 
-//		double a=scan.nextDouble();
-//		double b=scan.nextDouble();
-//		String s=scan.nextLine();
-//		
-//		double res=(double)(a)+s+(b);
-//		
-//	}
-//
-//}
 import java.util.Scanner;
 
 class Calculator {
-    // Method for Addition
-    public double add(double a, double b) {
+    double add(double a, double b) {
         return a + b;
     }
-
-    // Method for Subtraction
-    public double subtract(double a, double b) {
+    double subtract(double a, double b) {
         return a - b;
     }
-
-    // Method for Multiplication
-    public double multiply(double a, double b) {
+    double multiply(double a, double b) {
         return a * b;
     }
-
-    // Method for Division (with zero check)
-    public double divide(double a, double b) {
+    double divide(double a, double b) {
         if (b == 0) {
-            System.out.println("Error: Division by zero is not allowed.");
+            System.out.println("Cannot divide by zero");
             return 0;
         }
         return a / b;
@@ -47,45 +24,33 @@ class Calculator {
 public class Problem1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Calculator calc = new Calculator();
+        Calculator c = new Calculator();
 
-        // Taking input from user
-        System.out.print("Enter first number (a): ");
+        System.out.print("Enter first number: ");
         double a = sc.nextDouble();
 
-        System.out.print("Enter second number (b): ");
+        System.out.print("Enter second number: ");
         double b = sc.nextDouble();
 
-        System.out.print("Enter operation (add, subtract, multiply, divide): ");
-        String operation = sc.next().toLowerCase();
+        System.out.print("Enter operation (add/subtract/multiply/divide): ");
+        String op = sc.next().toLowerCase();
 
         double result = 0;
-        boolean validOperation = true;
-
-        // Performing the selected operation
-        switch (operation) {
-            case "add":
-                result = calc.add(a, b);
-                break;
-            case "subtract":
-                result = calc.subtract(a, b);
-                break;
-            case "multiply":
-                result = calc.multiply(a, b);
-                break;
-            case "divide":
-                result = calc.divide(a, b);
-                break;
-            default:
-                System.out.println("Invalid operation!");
-                validOperation = false;
+        if (op.equals("add")) {
+            result = c.add(a, b);
+        } else if (op.equals("subtract")) {
+            result = c.subtract(a, b);
+        } else if (op.equals("multiply")) {
+            result = c.multiply(a, b);
+        } else if (op.equals("divide")) {
+            result = c.divide(a, b);
+        } else {
+            System.out.println("Invalid operation");
+            sc.close();
+            return;
         }
 
-        // Displaying the result
-        if (validOperation) {
-            System.out.println("Result: " + result);
-        }
-
+        System.out.println("Result: " + result);
         sc.close();
     }
 }
