@@ -1,5 +1,3 @@
-package TANDEMLOOP;
-
 import java.util.Scanner;
 
 public class Problem3 
@@ -30,4 +28,5 @@ public class Problem3
 		}
 		sc.close();
 	}
+
 }
