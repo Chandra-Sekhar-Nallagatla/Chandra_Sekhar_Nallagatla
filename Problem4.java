@@ -1,5 +1,3 @@
-package TANDEMLOOP;
-
 import java.util.*;
 
 public class Problem4 
@@ -22,4 +20,5 @@ public class Problem4
         }
         System.out.println(map.toString().replace("=", ":"));
     }
+
 }
